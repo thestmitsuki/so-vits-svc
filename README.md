@@ -32,7 +32,3 @@ If you are using the `rmvpe` F0 Predictor, you will need to download the pre-tra
 
 #### 《[中华人民共和国合同法](http://www.npc.gov.cn/zgrdw/npc/lfzt/rlyw/2016-07/01/content_1992739.htm)》
 
-## 💪 Thanks to all contributors for their efforts
-<a href="https://github.com/svc-develop-team/so-vits-svc/graphs/contributors" target="_blank">
-  <img src="https://contrib.rocks/image?repo=svc-develop-team/so-vits-svc" />
-</a>
