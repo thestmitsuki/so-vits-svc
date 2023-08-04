@@ -8,8 +8,9 @@ import numpy as np
 from RMVPEF0Predictor import RMVPEF0Predictor
 import soundfile
 
-def save_csv_pitch(pitch, path):
+def save_csv_pitch(pitch, uv, path):
     with open(path, "w", encoding='utf-8') as pitch_file:
+        pitch *= uv
         for i in range(len(pitch)):
             t = i * 10
             minute = t // 60000
@@ -47,6 +48,7 @@ if __name__ == "__main__":
         audio = librosa.resample(audio, orig_sr=sampling_rate, target_sr=16000)
     pitch, uv = predictor.compute_f0_uv(audio)
     pitch = np.repeat(pitch, 2, -1)
-    save_csv_pitch(pitch, args.pit)
+    uv = np.repeat(uv, 2, -1)
+    save_csv_pitch(pitch, uv, args.pit)
     #tmp = load_csv_pitch(args.pit)
     #save_csv_pitch(tmp, "tmp.csv")
