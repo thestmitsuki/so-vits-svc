@@ -84,8 +84,6 @@ class RMVPEF0Predictor(F0Predictor):
         f0 = np.interp(time_frame, time_org, f0, left=f0[0], right=f0[-1])
         vuv_vector = np.ceil(scipy.ndimage.zoom(vuv_vector,pad_to/len(vuv_vector),order = 0))
 
-        f0 *= vuv_vector.cpu().numpy()
-
         return f0, vuv_vector.cpu().numpy()
 
     #   分段线性插值
@@ -113,8 +111,6 @@ class RMVPEF0Predictor(F0Predictor):
             slope = (f0[end] - f0[start]) / (end - start)
             intercept = f0[start] - slope * start
             f0[start + 1: end] = slope * torch.arange(start + 1, end, device=f0.device) + intercept
-
-        f0 *= vuv_vector
 
         return f0.cpu().numpy(), vuv_vector.cpu().numpy()
 
@@ -149,8 +145,6 @@ class RMVPEF0Predictor(F0Predictor):
         from scipy.interpolate import CubicSpline
         cs = CubicSpline(time_org, f0)
         f0 = cs(time_frame)
-
-        f0 *= vuv_vector.cpu().numpy()
 
         return f0, vuv_vector.cpu().numpy()
 
