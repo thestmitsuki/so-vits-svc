@@ -82,7 +82,7 @@ class RMVPEF0Predictor(F0Predictor):
 
         # 大概可以用 torch 重写?
         f0 = np.interp(time_frame, time_org, f0, left=f0[0], right=f0[-1])
-        vuv_vector = np.ceil(scipy.ndimage.zoom(vuv_vector,pad_to/len(vuv_vector),order = 0))
+        #vuv_vector = np.ceil(scipy.ndimage.zoom(vuv_vector,pad_to/len(vuv_vector),order = 0))
 
         return f0, vuv_vector.cpu().numpy()
 
