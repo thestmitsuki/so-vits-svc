@@ -5,7 +5,11 @@ If you are using the `rmvpe` F0 Predictor, you will need to download the pre-tra
 - download model at [rmvpe.pt](https://huggingface.co/datasets/ylzz1997/rmvpe_pretrain_model/resolve/main/rmvpe.pt)
   - Place it under the `pretrain` directory
 
+##### USE
 
+Run `pitch/inference.py`
+
+You will get a CSV file containing the timestamp and fundamental frequency information
 
 
 #### Any country, region, organization, or individual using this project must comply with the following laws.
