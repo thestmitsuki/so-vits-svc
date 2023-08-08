@@ -4,12 +4,10 @@ import sys, torch, numpy as np, traceback, pdb
 import torch
 import torch.nn.functional as F
 
-from F0Predictor import F0Predictor
-
 from rmvpe import RMVPE
 import traceback
 
-class RMVPEF0Predictor(F0Predictor):
+class RMVPEF0Predictor:
     def __init__(self, hop_length=320, f0_min=50, f0_max=1100, dtype=torch.float32, device=None,
                  sampling_rate=16000,
                  threshold=0.05):
@@ -53,7 +51,6 @@ class RMVPEF0Predictor(F0Predictor):
             return results[0]
     #   默认
     def post_process0(self, x, sampling_rate, f0, pad_to):
-        print('run 默认插值法')
         if isinstance(f0, np.ndarray):
             f0 = torch.from_numpy(f0).float().to(x.device)
 
@@ -88,7 +85,6 @@ class RMVPEF0Predictor(F0Predictor):
 
     #   分段线性插值
     def post_process1(self, x, sampling_rate, f0, pad_to):
-        print('run 分段线性插值')
         if isinstance(f0, np.ndarray):
             f0 = torch.from_numpy(f0).float().to(x.device)
 
@@ -116,7 +112,6 @@ class RMVPEF0Predictor(F0Predictor):
 
     # 使用三次样条插值
     def post_process2(self, x, sampling_rate, f0, pad_to):
-        print('run 三次样条插值')
         if isinstance(f0, np.ndarray):
             f0 = torch.from_numpy(f0).float().to(x.device)
 
