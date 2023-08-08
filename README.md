@@ -7,10 +7,13 @@ If you are using the `rmvpe` F0 Predictor, you will need to download the pre-tra
 
 ##### USE
 
-Run `pitch/inference.py`
+· Run `pitch/inference.py`
 
 You will get a CSV file containing the timestamp and fundamental frequency information
 
+· Run `prepare/preprocess_rmvpe.py`
+
+To get NPY files using RMVPE
 
 #### Any country, region, organization, or individual using this project must comply with the following laws.
 
