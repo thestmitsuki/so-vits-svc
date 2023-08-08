@@ -22,7 +22,6 @@ def compute_f0(filename, save, device):
     pitch = abs(pitch) * uv
     pitch = torch.from_numpy(pitch).to(torch.float32)
     pitch = pitch.squeeze(0)
-    pitch = torch.where(pitch < 0, torch.zeros_like(pitch), pitch)
     np.save(save, pitch, allow_pickle=False)
 
 
