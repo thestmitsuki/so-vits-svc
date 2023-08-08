@@ -5,7 +5,6 @@ import torch
 import torch.nn.functional as F
 
 from rmvpe import RMVPE
-import traceback
 
 class RMVPEF0Predictor:
     def __init__(self, hop_length=320, f0_min=50, f0_max=1100, dtype=torch.float32, device=None,
